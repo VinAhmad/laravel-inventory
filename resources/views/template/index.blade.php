@@ -23,7 +23,7 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
+                    <div class="container-fluid px-4 pt-4">
                         @yield('konten')
                     </div>
                 </main>
