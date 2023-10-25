@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MasterBarangModel;
 use Illuminate\Http\Request;
 
 class MasterBarangController extends Controller
@@ -11,7 +12,9 @@ class MasterBarangController extends Controller
      */
     public function index()
     {
-        return view('master.barang.index');
+        // Proses ambil data dari mysql
+        $barang = MasterBarangModel::all();
+        return view('master.barang.index', compact('barang'));
     }
 
     /**
