@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MasterBarangController;
 use App\Http\Controllers\MasterController;
+use App\Http\Controllers\MasterGudangController;
+use App\Http\Controllers\MasterKategorigController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +37,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware('auth');
 
 Route::get('/master', [MasterController::class, 'index'])->middleware('auth')->name('master');
+
+Route::get('/master/barang', [MasterBarangController::class, 'index'])->middleware('auth')->name('master-barang');
+Route::get('master/gudang', [MasterGudangController::class, 'index'])->middleware('auth')->name('master-gudang');
+Route::get('master/kategori', [MasterKategorigController::class, 'index'])->middleware('auth')->name('master-kategori');
