@@ -38,6 +38,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 
 Route::get('/master', [MasterController::class, 'index'])->middleware('auth')->name('master');
 
+// Route Master Barang
 Route::get('/master/barang', [MasterBarangController::class, 'index'])->middleware('auth')->name('master-barang');
+Route::get('/master/barang-tambah', [MasterBarangController::class, 'create'])->middleware('auth')->name('master-barang-tambah');
+
 Route::get('master/gudang', [MasterGudangController::class, 'index'])->middleware('auth')->name('master-gudang');
 Route::get('master/kategori', [MasterKategorigController::class, 'index'])->middleware('auth')->name('master-kategori');
