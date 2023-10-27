@@ -40,7 +40,8 @@ Route::get('/master', [MasterController::class, 'index'])->middleware('auth')->n
 
 // Route Master Barang
 Route::get('/master/barang', [MasterBarangController::class, 'index'])->middleware('auth')->name('master-barang');
-Route::get('/master/barang-tambah', [MasterBarangController::class, 'create'])->middleware('auth')->name('master-barang-tambah');
+Route::get('/master/barang/tambah', [MasterBarangController::class, 'create'])->middleware('auth')->name('master-barang-tambah');
+Route::post('/master/barang/simpan', [MasterBarangController::class, 'store'])->middleware('auth')->name('master-barang-simpan');
 
 Route::get('master/gudang', [MasterGudangController::class, 'index'])->middleware('auth')->name('master-gudang');
 Route::get('master/kategori', [MasterKategorigController::class, 'index'])->middleware('auth')->name('master-kategori');
