@@ -13,6 +13,6 @@
     </li>
   </ul>
   <div class="tab-content pt-4">
-    @yield('master-konten');
+    @yield('master-konten')
   </div>
 @endsection
