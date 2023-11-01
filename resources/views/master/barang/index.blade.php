@@ -16,6 +16,7 @@
             <th scope="col">Kode</th>
             <th scope="col">Nama Barang</th>
             <th scope="col">Deskripsi</th>
+            <th scope="col">Pilihan</th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +29,11 @@
                 <td>{{ $b->kode }}</td>
                 <td>{{ $b->nama }}</td>
                 <td>{{ $b->deskripsi }}</td>
+                <td>
+                    <a href="{{ route('master-barang-hapus', ['id' => $b->id]) }}" class="btn btn-danger rounded-circle" onclick="return confirm('Apakah anda yakin ingin hapus {{ $b->kode }} ?')">
+                        <i class="fa fa-solid fa-trash"></i>
+                    </a>
+                </td>
             </tr>
         @endforeach
     </tbody>
