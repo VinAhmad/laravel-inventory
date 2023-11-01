@@ -39,7 +39,15 @@ class MasterBarangController extends Controller
             'html_deskripsi' => 'max:255',
         ];
 
-        $validator = Validator::make($request->all(), $aturan);
+        $pesan_indo = [
+            'required' => 'Gaboleh kosong!',
+            'min' => 'Minimal :min karakter cuy!',
+            'max' => 'Maximal :max karakter cuy!',
+            'Uppercase' => 'Wajib huruf Kapital!',
+            'alpha_dash' => 'Hanya alphabet, numeric, underscore, dan strip!',
+        ];
+
+        $validator = Validator::make($request->all(), $aturan, $pesan_indo);
 
         try {
             // Jika Inputan user tidak sesuai dengan aturan validasi
