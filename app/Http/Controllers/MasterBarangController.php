@@ -34,7 +34,7 @@ class MasterBarangController extends Controller
     {
         //Proses Validasi
         $aturan = [
-            'html_kode' => 'required|min:3|max:7|alpha_dash|Uppercase',
+            'html_kode' => 'required|min:3|max:7|alpha_dash',
             'html_nama' => 'required|min:5|max:25',
             'html_deskripsi' => 'max:255',
         ];
@@ -43,8 +43,7 @@ class MasterBarangController extends Controller
             'required' => 'Gaboleh kosong!',
             'min' => 'Minimal :min karakter cuy!',
             'max' => 'Maximal :max karakter cuy!',
-            'Uppercase' => 'Wajib huruf Kapital!',
-            'alpha_dash' => 'Hanya alphabet, numeric, underscore, dan strip!',
+            'alpha_dash' => 'Input hanya boleh berisi alphabet, numeric, underscore, dan strip!',
         ];
 
         $validator = Validator::make($request->all(), $aturan, $pesan_indo);
