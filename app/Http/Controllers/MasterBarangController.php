@@ -34,9 +34,9 @@ class MasterBarangController extends Controller
     {
         //Proses Validasi
         $aturan = [
-            'html_kode' => 'required|min:3|max:7|alpha_dash',
-            'html_nama' => 'required|min:5|max:25|alpha_num',
-            'html_deskripsi' => 'required|between:5,255|alpha_dash',
+            'html_kode' => 'required|min:3|max:7|alpha_dash|Uppercase',
+            'html_nama' => 'required|min:5|max:25',
+            'html_deskripsi' => 'max:255',
         ];
 
         $validator = Validator::make($request->all(), $aturan);
