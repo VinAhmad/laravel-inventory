@@ -36,7 +36,7 @@ class MasterBarangController extends Controller
         $aturan = [
             'html_kode' => 'required|min:3|max:7|alpha_dash',
             'html_nama' => 'required|min:5|max:25',
-            'html_deskripsi' => 'max:255',
+            'html_deskripsi' => 'required|max:255',
         ];
 
         $pesan_indo = [
@@ -56,7 +56,7 @@ class MasterBarangController extends Controller
                 // Jika inputan user sesuai dengan aturan validasi
                 // Simpan ke database
                 $insert = MasterBarangModel::create([
-                    'kode'              => $request->html_kode,
+                    'kode'              => strtoupper($request->html_kode),
                     'nama'              => $request->html_nama,
                     'deskripsi'         => $request->html_deskripsi,
                     'id_kategori'       => null,
