@@ -10,6 +10,10 @@
                 <div class="sb-nav-link-icon"><i class="fa-solid fa-database"></i></div>
                 Master Data
             </a>
+            <a class="nav-link {{ (Request::segment(1) == 'stok-masuk') ? 'active' : '' }}" href="{{ route('stok-masuk') }}">
+                <div class="sb-nav-link-icon"><i class="fa-solid fa-box"></i></div>
+                Stok Masuk
+            </a>
         </div>
     </div>
     <div class="sb-sidenav-footer">

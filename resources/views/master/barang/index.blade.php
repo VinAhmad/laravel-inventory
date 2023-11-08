@@ -35,6 +35,11 @@
                         <i class="fa fa-solid fa-eye"></i>
                     </a>
 
+                    <a href="{{ route('master-barang-edit', ['id' => $b->id]) }}"
+                        class="btn btn-sm btn-warning rounded-circle">
+                        <i class="fa fa-solid fa-pencil"></i>
+                    </a>
+
                     <a href="{{ route('master-barang-hapus', ['id' => $b->id]) }}" class="btn btn-danger rounded-circle" onclick="return confirm('Apakah anda yakin ingin hapus {{ $b->kode }} ?')">
                         <i class="fa fa-solid fa-trash"></i>
                     </a>

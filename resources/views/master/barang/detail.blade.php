@@ -21,6 +21,10 @@
             <span class="card-text">Dibuat: {{ $dibuat }} | {{ $barang[0]->dibuat_nama }}</span><br>
             <span class="card-text">Terakhir Diperbarui: {{ $diperbarui }} | {{ $barang[0]->diperbarui_nama }}</span>
         </div>
+        <a href="{{ route('master-barang') }}"
+            class="btn btn-sm btn-success rounded-rectangle">
+            <i class="fa fa-solid fa-arrow-left"></i>
+        </a>
     </div>
 @else
     <h2>Tidak ada data!</h2>
