@@ -170,7 +170,7 @@ class MasterBarangController extends Controller
             // ->route('master-barang-tambah')
             // ->with('error', $th->getMessage());
             // echo $th->getMessage();
-            return redirect()->route('master-barang-edit')->with('danger', $th->getMessage());
+            return redirect()->route('master-barang-update')->with('danger', $th->getMessage());
         }
     }
 

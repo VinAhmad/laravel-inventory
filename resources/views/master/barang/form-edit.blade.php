@@ -27,6 +27,11 @@
     <button type="submit" class="btn btn-warning">
         <i class="fa fa-solid fa-save me-2"></i>Update
     </button>
+    <br><br>
+    <a href="{{ route('master-barang') }}"
+        class="btn btn-lg btn-success rounded-rectangle">
+        <i class="fa fa-solid fa-arrow-left"></i>
+    </a>
 </form>
 
 @endsection

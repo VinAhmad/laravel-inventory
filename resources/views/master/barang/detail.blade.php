@@ -22,7 +22,7 @@
             <span class="card-text">Terakhir Diperbarui: {{ $diperbarui }} | {{ $barang[0]->diperbarui_nama }}</span>
         </div>
         <a href="{{ route('master-barang') }}"
-            class="btn btn-sm btn-success rounded-rectangle">
+            class="btn btn-sm btn-secondary rounded-rectangle">
             <i class="fa fa-solid fa-arrow-left"></i>
         </a>
     </div>

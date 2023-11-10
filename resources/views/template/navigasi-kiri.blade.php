@@ -14,6 +14,14 @@
                 <div class="sb-nav-link-icon"><i class="fa-solid fa-box"></i></div>
                 Stok Masuk
             </a>
+            <a class="nav-link {{ (Request::segment(1) == 'stok-keluar') ? 'active' : '' }}" href="{{ route('stok-keluar') }}">
+                <div class="sb-nav-link-icon"><i class="fa-solid fa-dolly"></i></div>
+                Stok Keluar
+            </a>
+            <a class="nav-link {{ (Request::segment(1) == 'riwayat-barang') ? 'active' : '' }}" href="{{ route('riwayat-barang') }}">
+                <div class="sb-nav-link-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                Riwayat Barang
+            </a>
         </div>
     </div>
     <div class="sb-sidenav-footer">

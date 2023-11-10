@@ -6,6 +6,7 @@ use App\Http\Controllers\MasterBarangController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\MasterGudangController;
 use App\Http\Controllers\MasterKategorigController;
+use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\StokController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,8 +49,21 @@ Route::get('master/barang/detail/{id}', [MasterBarangController::class, 'show'])
 Route::get('master/barang/edit/{id}', [MasterBarangController::class, 'edit'])->middleware('auth')->name('master-barang-edit')->where('id', '[0-9]+');
 Route::post('master/barang/update/{id}', [MasterBarangController::class, 'update'])->middleware('auth')->name('master-barang-update')->where('id', '[0-9]+');;
 
+//Route Master Gudang
 Route::get('master/gudang', [MasterGudangController::class, 'index'])->middleware('auth')->name('master-gudang');
+
+// Route Master Kategori
 Route::get('master/kategori', [MasterKategorigController::class, 'index'])->middleware('auth')->name('master-kategori');
 
 // Route stok masuk
 Route::get('/stok-masuk', [StokController::class, 'form_stok_masuk'])->name('stok-masuk')->middleware('auth');
+Route::post('/stok-in', [StokController::class, 'proses_stok_masuk'])->name('stok-in')->middleware('auth');
+
+//Route Stok Keluar
+Route::get('/stok-keluar', [StokController::class, 'form_stok_keluar'])->name('stok-keluar')->middleware('auth');
+Route::post('/stok-out', [StokController::class, 'proses_stok_keluar'])->name('stok-out')->middleware('auth');
+
+//Route Riwayat
+Route::get('/riwayat/barang', [RiwayatController::class, 'index'])->middleware('auth')->name('riwayat-barang');
+Route::get('/riwayat/barang/restore/{id}', [RiwayatController::class, 'restore_barang'])->where('id', '[0-9]+')->middleware('auth')->name('restore-barang');
+Route::get('/riwayat/barang/delete/{id}', [RiwayatController::class, 'destroy'])->where('id', '[0-9]+')->middleware('auth')->name('delete-barang');
