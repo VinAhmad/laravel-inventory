@@ -120,7 +120,7 @@ class MasterBarangController extends Controller
             WHERE mba.id = ?;",
             [$id]
         );
-        return view('master.barang.form-edit', compact('barang'));
+        return view('master/barang/form-edit', compact('barang'));
     }
 
     /**
@@ -130,47 +130,41 @@ class MasterBarangController extends Controller
     {
         //Proses Validasi
         $aturan = [
-            'html_nama' => 'required|min:5|max:25',
+            'html_nama' => 'required|min:10|max:25',
             'html_deskripsi' => 'required|max:255',
         ];
-
         $pesan_indo = [
-            'required' => 'Gaboleh kosong!',
-            'min' => 'Minimal :min karakter cuy!',
-            'max' => 'Maximal :max karakter cuy!',
-            'alpha_dash' => 'Input hanya boleh berisi alphabet, numeric, underscore, dan strip!',
+            'required' => 'Wajib diisi bos!!',
+            'min' => 'Minimal :min karakter!!',
         ];
-
         $validator = Validator::make($request->all(), $aturan, $pesan_indo);
-
         try {
-            // Jika Inputan user tidak sesuai dengan aturan validasi
+            //jika inputan user tidak sesuai dengan aturan validasi
             if ($validator->fails()) {
-                return redirect()->route('master-barang-edit', $id)->withErrors($validator)->withInput();
-            }else {
-                // Jika inputan user sesuai dengan aturan validasi
-                // Simpan ke database
-                $update = MasterBarangModel::where(['id', $id])->create([
-                    'kode'              => strtoupper($request->html_kode),
+                return redirect()
+                ->route('master-barang-edit',$id)
+                ->withErrors($validator)->withInput();
+            } else {
+                //jika inputan user sesuai
+                //update ke database
+                $update = MasterBarangModel::where('id',$id)->update([
                     'nama'              => $request->html_nama,
                     'deskripsi'         => $request->html_deskripsi,
                     'diperbarui_kapan'  => date('Y-m-d H:i:s'),
-                    'diperbarui_oleh'   => null,
+                    'diperbarui_oleh'   => Auth::user()->id,
                 ]);
                 //jika proses update berhasil
                 if ($update) {
                     return redirect()
                     ->route('master-barang')
-                    ->with('success', 'Berhasil menambahkan barang baru!');
+                    ->with('success', 'Berhasil update barang!');
                 }
             }
         }
         catch (\Throwable $th) {
-            // return redirect()
-            // ->route('master-barang-tambah')
-            // ->with('error', $th->getMessage());
-            // echo $th->getMessage();
-            return redirect()->route('master-barang-update')->with('danger', $th->getMessage());
+            return redirect()
+            ->route('master-barang-edit',$id)
+            ->with('danger', $th->getMessage());
         }
     }
 
