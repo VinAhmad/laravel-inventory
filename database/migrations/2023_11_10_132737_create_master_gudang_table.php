@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('master_gudang', function (Blueprint $table) {
             $table->id();
+            $table->string('nama', 20);
             $table->timestamps();
         });
     }
